@@ -1,31 +1,39 @@
-<% for(var i=0; i < items.length; i++) { %>
-    <div class="card">
+<div class="accordion" id="accordionId">
+    <% for(var i=0; i < items.length; i++) { %>
         <% var headIndex="heading" +i %>
-            <div class="card-header" id="<%= headIndex %>">
-                <h5 class="mb-0">
-                    <%- items[i].title %>
-                </h5>
-            </div>
+            <% var collapseIndex="collapse" +i %>
 
-            <div class="card-body">
-                <%- items[i].body -%>
-            </div>
+                <div class="card">
+                    <div class="card-header" id="<%= headIndex %>">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#<%=collapseIndex%>" aria-expanded="false"
+                                aria-controls="<%=collapseIndex%>">
+                                <%- items[i].title %>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="<%=collapseIndex%>" class="collapse" aria-labelledby="<%=headIndex%>"
+                        data-parent="#accordionId">
+                        <div class="card-body">
+                            <%- items[i].body -%>
 
-            <% for(var a=0; a < items[i].answers.length; a++) { %>
-                <ul>
-                    <li>
-                        <%=items[i].answers[a].answer_id%> vs. <%=items[i].accepted_answer_id%>
+                                <% for(var a=0; a < items[i].answers.length; a++) { %>
+                                    <ul>
+                                        <li>
+                                            <%=items[i].answers[a].answer_id%> vs. <%=items[i].accepted_answer_id%>
 
-                                <%if(items[i].answers[a].answer_id==items[i].accepted_answer_id){ %>
-                                    <span class="badge badge-pill badge-success">Correct</span>
-                                    <%} else {%>
-                                        <span class="badge badge-pill badge-danger">Wrong</span>
-                                        <%}%>
-                    </li>
-                </ul>
-
+                                                    <%if(items[i].answers[a].answer_id==items[i].accepted_answer_id){ %>
+                                                        <span class="badge badge-pill badge-success">Correct</span>
+                                                        <%} else {%>
+                                                            <span class="badge badge-pill badge-danger">Wrong</span>
+                                                            <%}%>
+                                        </li>
+                                    </ul>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
 
                 <% } %>
-    </div>
-
-    <% } %>
+</div>

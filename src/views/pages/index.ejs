@@ -17,9 +17,13 @@
 </head>
 
 <body>
-    <h1>Stack Guesser</h1>
+    <%- include('../partials/header'); %>
 
-    <%- include('../partials/questionlist'); %>
+        <%if (!items || items.length<1){%>
+            <%- include('../partials/blank');%>
+                <%} else{%>
+                    <%- include('../partials/questionlist'); %>
+                        <%}%>
 </body>
 
 </html>

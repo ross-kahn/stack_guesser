@@ -1,0 +1,13 @@
+<% for(var a=0; a < items[i].answers.length; a++) { %>
+    <ul>
+        <li>
+            <%=items[i].answers[a].answer_id%> vs. <%=items[i].accepted_answer_id%>
+
+                    <%if(items[i].answers[a].answer_id==items[i].accepted_answer_id){ %>
+                        <span class="badge badge-pill badge-success">Correct</span>
+                        <%} else {%>
+                            <span class="badge badge-pill badge-danger">Wrong</span>
+                            <%}%>
+        </li>
+    </ul>
+    <% } %>
