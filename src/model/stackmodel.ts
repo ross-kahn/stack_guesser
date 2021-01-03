@@ -6,6 +6,7 @@ export type StackResponse = {
 }
 
 export type StackQuestion = {
+    answers: StackAnswer[];
     question_id: number;
     is_answered: boolean;
     answer_count: number;
@@ -20,6 +21,5 @@ export type StackAnswer = {
     is_accepted: boolean;
     question_id: number;
     link: string;
-    title: string;
     body: string;
 }

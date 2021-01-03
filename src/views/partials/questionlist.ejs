@@ -9,6 +9,7 @@
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                 data-target="#<%=collapseIndex%>" aria-expanded="false"
                                 aria-controls="<%=collapseIndex%>">
+                                <span class="badge badge-warning">Unsanswered</span>
                                 <%- items[i].title %>
                             </button>
                         </h2>
@@ -18,19 +19,7 @@
                         <div class="card-body">
                             <%- items[i].body -%>
 
-                                <% for(var a=0; a < items[i].answers.length; a++) { %>
-                                    <ul>
-                                        <li>
-                                            <%=items[i].answers[a].answer_id%> vs. <%=items[i].accepted_answer_id%>
-
-                                                    <%if(items[i].answers[a].answer_id==items[i].accepted_answer_id){ %>
-                                                        <span class="badge badge-pill badge-success">Correct</span>
-                                                        <%} else {%>
-                                                            <span class="badge badge-pill badge-danger">Wrong</span>
-                                                            <%}%>
-                                        </li>
-                                    </ul>
-                                    <% } %>
+                                <%- include('../partials/answerlist', {stackQuestion: items[i]}); %>
                         </div>
                     </div>
                 </div>

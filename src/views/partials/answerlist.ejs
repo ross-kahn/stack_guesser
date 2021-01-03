@@ -1,13 +1,35 @@
-<% for(var a=0; a < items[i].answers.length; a++) { %>
-    <ul>
-        <li>
-            <%=items[i].answers[a].answer_id%> vs. <%=items[i].accepted_answer_id%>
+<h2>Choose which answer you think was accepted!</h2>
 
-                    <%if(items[i].answers[a].answer_id==items[i].accepted_answer_id){ %>
-                        <span class="badge badge-pill badge-success">Correct</span>
-                        <%} else {%>
-                            <span class="badge badge-pill badge-danger">Wrong</span>
-                            <%}%>
-        </li>
-    </ul>
-    <% } %>
+<%var accordionID="answerAccordion" +stackQuestion.question_id %>
+    <div class="accordion" id=<%=accordionID%>>
+        <% for(var a=0; a < stackQuestion.answers.length; a++) { %>
+            <% var answerHeader="answerHead" +stackQuestion.question_id+"_"+a%>
+                <% var answerCollapse="answerCollapse" +stackQuestion.question_id+"_"+a%>
+                    <div class="card">
+                        <div class="card-header" id="<%=answerHeader%>">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#<%=answerCollapse%>" aria-expanded="false"
+                                    aria-controls="<%=answerCollapse%>">
+                                    Answer #<%=stackQuestion.answers[a].answer_id%>
+
+                                        <%if(stackQuestion.answers[a].is_accepted){ %>
+                                            <span class="badge badge-pill badge-success">Correct</span>
+                                            <%} else {%>
+                                                <span class="badge badge-pill badge-danger">Wrong</span>
+                                                <%}%>
+
+                                                    <button class="btn">Choose this</button>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="<%=answerCollapse%>" class="collapse" aria-labelledby="<%=answerHeader%>"
+                            data-parent="#<%=accordionID%>">
+                            <div class="card-body">
+                                <%- stackQuestion.answers[a].body %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+    </div>

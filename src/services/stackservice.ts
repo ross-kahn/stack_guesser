@@ -7,7 +7,7 @@ export class StackService
     {
         console.log("\nAbout to fetch a thing!");
 
-        return await fetch('https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow&filter=!*7PmBTiIxbvr1rG8naQ6pbyBpLTt')
+        return await fetch('https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow&filter=!1PVJbo7_VTGx)GP63j(kDyvbZtbqs.AlD')
             .then(result => result.json())
             .then(json =>
             {

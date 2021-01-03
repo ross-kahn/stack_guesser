@@ -18,12 +18,7 @@
 
 <body>
     <%- include('../partials/header'); %>
-
-        <%if (!items || items.length<1){%>
-            <%- include('../partials/blank');%>
-                <%} else{%>
-                    <%- include('../partials/questionlist'); %>
-                        <%}%>
+        <%- include('../partials/questionlist'); %>
 </body>
 
 </html>
