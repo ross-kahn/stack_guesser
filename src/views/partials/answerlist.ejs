@@ -19,15 +19,16 @@
                                                 <%var badgeID=qID+"_"+aID%>
                                                     <%if(stackQuestion.answers[a].is_accepted){ %>
                                                         <span id=<%-badgeID%> class="badge badge-pill badge-success
-                                                            d-none">Correct</span>
+                                                            d-none">Accepted answer!</span>
                                                         <%} else {%>
                                                             <span id=<%-badgeID%> class="badge badge-pill badge-danger
-                                                                d-none">Wrong</span>
+                                                                d-none">Not accepted</span>
                                                             <%}%>
 
 
-                                                                <button onclick=<%-"showBadges(" + qID + "," + aID+")"%>
-                                                                    class="btn">Guess</button>
+                                                                <button type="button" onclick=<%-"showBadges(" + qID
+                                                                    + "," + aID+")"%>
+                                                                    class="btn btn-outline-primary">Guess</button>
                                 </button>
                             </h2>
                         </div>
