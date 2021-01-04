@@ -11,8 +11,7 @@
     "build": "npm-run-all clean lint tsc copy-assets",
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
-    "prod": "node .",
-    "start": "npm-run-all clean tsc copy-assets prod",
+    "start": "node dist/config/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ross Kahn",
@@ -37,5 +36,8 @@
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": "12.19.0"
   }
 }
