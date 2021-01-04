@@ -1,3 +1,8 @@
+/**
+ * Models results from the stack exchange API
+ */
+
+// Response object. Contains a list of questions and answers
 export type StackResponse = {
     items: StackQuestion[],
     has_more: boolean,
@@ -5,6 +10,7 @@ export type StackResponse = {
     quota_remaining: number
 }
 
+// Question object. Contains all data needed to render, plus data on answers
 export type StackQuestion = {
     answers: StackAnswer[];
     question_id: number;
@@ -16,6 +22,7 @@ export type StackQuestion = {
     link: string;
 }
 
+// Answer object. Contains all data needed to render
 export type StackAnswer = {
     answer_id: boolean;
     is_accepted: boolean;

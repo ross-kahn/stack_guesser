@@ -6,6 +6,11 @@ import { StackService } from "./stackservice";
  */
 export class Routes
 {
+    /**
+     * Routes the index
+     * @param app Express application
+     * @param stackService Service to retrieve results from the stack exchange API
+     */
     public route(app: Application, stackService: StackService)
     {
         app.get('/', (req: Request, res: Response) =>

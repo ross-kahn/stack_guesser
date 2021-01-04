@@ -11,15 +11,23 @@
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                     data-target="#<%=answerCollapse%>" aria-expanded="false"
                                     aria-controls="<%=answerCollapse%>">
-                                    Answer #<%=stackQuestion.answers[a].answer_id%>
+                                    <%var qID=stackQuestion.question_id%>
+                                        <%var aID=stackQuestion.answers[a].answer_id%>
+                                            Answer #<%=aID%>
 
-                                        <%if(stackQuestion.answers[a].is_accepted){ %>
-                                            <span class="badge badge-pill badge-success">Correct</span>
-                                            <%} else {%>
-                                                <span class="badge badge-pill badge-danger">Wrong</span>
-                                                <%}%>
 
-                                                    <button class="btn">Choose this</button>
+                                                <%var badgeID=qID+"_"+aID%>
+                                                    <%if(stackQuestion.answers[a].is_accepted){ %>
+                                                        <span id=<%-badgeID%> class="badge badge-pill badge-success
+                                                            d-none">Correct</span>
+                                                        <%} else {%>
+                                                            <span id=<%-badgeID%> class="badge badge-pill badge-danger
+                                                                d-none">Wrong</span>
+                                                            <%}%>
+
+
+                                                                <button onclick=<%-"showBadges(" + qID + "," + aID+")"%>
+                                                                    class="btn">Choose this</button>
                                 </button>
                             </h2>
                         </div>

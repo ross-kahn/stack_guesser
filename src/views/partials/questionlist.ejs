@@ -9,7 +9,7 @@
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                 data-target="#<%=collapseIndex%>" aria-expanded="false"
                                 aria-controls="<%=collapseIndex%>">
-                                <span class="badge badge-warning">Unsanswered</span>
+                                <span id="<%= items[i].question_id %>" class="badge badge-warning">New</span>
                                 <%- items[i].title %>
                             </button>
                         </h2>
