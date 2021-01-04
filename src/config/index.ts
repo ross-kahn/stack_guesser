@@ -1,6 +1,6 @@
 import app from "./app";
 
-const port = 3000; // default port to listen
+const port = process.env.PORT || 3000
 
 // start the Express server
 app.listen(port, () =>
