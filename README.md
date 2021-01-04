@@ -1,6 +1,7 @@
 # Stack Guesser
 ## A *very* simple node.js application to guess the accepted answers to recent stack overflow questions
 
+https://stackguesser.herokuapp.com/
 
 ### How to use
 When you open the guesser, we'll pull a list of recently answered questions from Stack Overflow and list them with the "new" badge. Simply expand one of the questions and read it. Then, take a look at the list of answers at the bottom of the question. Expand each one and try to guess which was chosen as the accepted answer. Take a guess by clicking the "Guess" button next to an answer. 
